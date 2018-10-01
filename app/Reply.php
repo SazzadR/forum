@@ -11,4 +11,9 @@ class Reply extends Model
     protected $fillable = [
         'body'
     ];
+
+    public function owner()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }
