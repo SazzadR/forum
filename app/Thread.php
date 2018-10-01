@@ -11,4 +11,9 @@ class Thread extends Model
     protected $fillable = [
         'title', 'body'
     ];
+
+    public function path()
+    {
+        return '/threads/' . $this->id;
+    }
 }
