@@ -8,9 +8,7 @@ class Reply extends Model
 {
     protected $table = 'replies';
 
-    protected $fillable = [
-        'body'
-    ];
+    protected $guarded = [];
 
     public function owner()
     {
