@@ -33,7 +33,8 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        &nbsp;
+                        <li><a href="{{ url('/threads') }}" class="nav-link">All Threads</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

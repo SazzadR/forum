@@ -10,9 +10,15 @@ class RepliesController extends Controller
 {
     public function store(Thread $thread, Request $request)
     {
+        $request->validate([
+            'body' => 'required'
+        ]);
+
         $thread->addReply([
             'body' => $request->body,
             'user_id' => Auth::user()->id
         ]);
+
+        return redirect()->back();
     }
 }
