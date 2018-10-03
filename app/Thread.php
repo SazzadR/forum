@@ -9,7 +9,7 @@ class Thread extends Model
     protected $table = 'threads';
 
     protected $fillable = [
-        'title', 'body'
+        'user_id', 'title', 'body'
     ];
 
     public function path()
