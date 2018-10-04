@@ -16,7 +16,7 @@ class ThreadTest extends TestCase
     /** @test */
     public function a_thread_has_replies()
     {
-        $thread = factory(Thread::class)->create();
+        $thread = create(Thread::class);
 
         $this->assertInstanceOf(Collection::class, $thread->replies);
     }
