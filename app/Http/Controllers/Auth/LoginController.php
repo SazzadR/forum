@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -35,5 +37,26 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function showLoginForm(Request $request)
+    {
+        if ($request->query('redirect') !== null) {
+            Session::put('url.intended', $request->query('redirect'));
+        }
+
+        return view('auth.login');
+    }
+
+    public function redirectTo()
+    {
+        if (Session::get('url.intended')) {
+            $intended = Session::get('url.intended');
+            Session::remove('url.intended');
+
+            return $intended;
+        }
+
+        return '/home';
     }
 }
