@@ -21,6 +21,7 @@ Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/threads', 'ThreadsController@index');
+Route::get('/threads/create', 'ThreadsController@create');
 Route::post('/threads', 'ThreadsController@store');
 Route::get('/threads/{thread}', 'ThreadsController@show');
 
